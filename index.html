@@ -28,7 +28,6 @@
     </style>
 </head>
 <body>
-
     <div id="game-container">
         <div id="page1">
             <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG5uNGR0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/vVzH2Fx6W7hJ6/giphy.gif" class="cat-img">
@@ -38,13 +37,11 @@
                 <button class="btn btn-no" onclick="showPage('no-trap')">NO</button>
             </div>
         </div>
-
         <div id="no-trap" class="hidden">
             <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3YwN3Z0ZWFmNzl3emZ0ZWFmNzl3emZ0ZWFmNzl3emZ0ZWFmNzl3eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/vO89hO618mpx6/giphy.gif" class="cat-img">
             <h1 style="color: #e63946;">HOW DARE YOU!</h1>
             <button class="btn btn-next" onclick="showPage('page1')">BACK</button>
         </div>
-
         <div id="page2" class="hidden">
             <h1>CHOOSE A GIFT!</h1>
             <div class="gifts">
@@ -53,7 +50,6 @@
                 <img src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" class="gift-box" onclick="showPage('page3')">
             </div>
         </div>
-
         <div id="page3" class="hidden">
             <div class="polaroid">
                 <img src="us.jpeg">
@@ -64,14 +60,12 @@
             </p>
             <button class="btn btn-next" onclick="showPage('page4')">NEXT</button>
         </div>
-
         <div id="page4" class="hidden">
             <h1 style="font-family: 'Dancing Script'; font-size: 2.6rem; text-transform: none;">Happy New Year</h1>
             <p>May your 2026 be full of roses, cats, and everything you love. Stay as amazing as you are.</p>
             <h2 style="color: var(--pink-dark); letter-spacing: 5px;">✨ 2026 ✨</h2>
         </div>
     </div>
-
     <script>
         function showPage(id) {
             document.querySelectorAll('#game-container > div').forEach(div => div.classList.add('hidden'));
