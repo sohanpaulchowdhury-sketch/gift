@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,72 +8,28 @@
     <title>A Special Gift</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --pink-bg: #fdf0f5;
-            --pink-main: #ffb7c5;
-            --pink-dark: #fb6f92;
-        }
-
-        body, html {
-            margin: 0; padding: 0; height: 100%;
-            background-color: var(--pink-bg);
-            font-family: 'Quicksand', sans-serif;
-            overflow: hidden;
-            display: flex; justify-content: center; align-items: center;
-        }
-
-        .floating {
-            position: absolute; pointer-events: none; z-index: 1;
-            animation: floatUp 10s linear infinite; opacity: 0.5;
-        }
-        @keyframes floatUp {
-            0% { transform: translateY(110vh) rotate(0deg); }
-            100% { transform: translateY(-10vh) rotate(360deg); }
-        }
-
-        #game-container {
-            position: relative; z-index: 10;
-            width: 90%; max-width: 450px;
-            background: white;
-            padding: 40px 20px; border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-
+        :root { --pink-bg: #fdf0f5; --pink-main: #ffb7c5; --pink-dark: #fb6f92; }
+        body, html { margin: 0; padding: 0; height: 100%; background-color: var(--pink-bg); font-family: 'Quicksand', sans-serif; overflow: hidden; display: flex; justify-content: center; align-items: center; }
+        .floating { position: absolute; pointer-events: none; z-index: 1; animation: floatUp 10s linear infinite; opacity: 0.5; }
+        @keyframes floatUp { 0% { transform: translateY(110vh) rotate(0deg); } 100% { transform: translateY(-10vh) rotate(360deg); } }
+        #game-container { position: relative; z-index: 10; width: 90%; max-width: 400px; background: white; padding: 30px 20px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
         .hidden { display: none; }
-        
-        h1 { color: #333; font-size: 1.5rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; line-height: 1.4; }
-
-        .btn-group { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
-        
-        .btn {
-            padding: 12px 35px; border-radius: 50px; border: none;
-            cursor: pointer; font-weight: bold; font-size: 1rem;
-            transition: 0.3s;
-        }
-        
+        h1 { color: #333; font-size: 1.3rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-group { display: flex; justify-content: center; gap: 15px; }
+        .btn { padding: 12px 30px; border-radius: 50px; border: none; cursor: pointer; font-weight: bold; transition: 0.3s; }
         .btn-yes { background: var(--pink-main); color: white; }
         .btn-no { background: #eeeeee; color: #777; }
-        .btn-retry { background: var(--pink-dark); color: white; width: 100%; margin-top: 10px; }
-        
-        .cat-img { width: 180px; margin-bottom: 10px; border-radius: 15px; }
-
-        .gifts { display: flex; justify-content: center; gap: 10px; margin: 30px 0; }
-        .gift-box { width: 70px; cursor: pointer; transition: 0.3s; }
-
-        .polaroid {
-            background: white; padding: 10px 10px 35px 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transform: rotate(-2deg); margin-bottom: 20px;
-        }
-        .polaroid img { width: 100%; border-radius: 2px; }
+        .btn-next { background: var(--pink-dark); color: white; width: 100%; margin-top: 15px; }
+        .cat-img { width: 100%; max-width: 200px; margin-bottom: 15px; border-radius: 15px; }
+        .polaroid { background: white; padding: 10px 10px 30px 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transform: rotate(-2deg); margin-bottom: 15px; }
+        .polaroid img { width: 100%; border-radius: 2px; display: block; }
     </style>
 </head>
 <body>
 
     <div id="game-container">
         <div id="page1">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG5uNGR0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/vVzH2Fx6W7hJ6/giphy.gif" class="cat-img">
+            <img src="https://media.tenor.com/On7beu1btqEAAAAi/hello-kitty-flower.gif" class="cat-img">
             <h1>Hey I made something for you wanna see?</h1>
             <div class="btn-group">
                 <button class="btn btn-yes" onclick="showPage('page2')">YES</button>
@@ -80,34 +38,25 @@
         </div>
 
         <div id="no-trap" class="hidden">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3YwN3Z0ZWFmNzl3emZ0ZWFmNzl3emZ0ZWFmNzl3emZ0ZWFmNzl3eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/vO89hO618mpx6/giphy.gif" class="cat-img">
+            <img src="https://media.tenor.com/V36Y6v7T56gAAAAi/cat-gun.gif" class="cat-img">
             <h1 style="color: #e63946;">HOW DARE YOU!</h1>
-            <button class="btn btn-retry" onclick="showPage('page1')">BACK</button>
+            <button class="btn btn-next" onclick="showPage('page1')">BACK</button>
         </div>
 
         <div id="page2" class="hidden">
-            <h1>CHOOSE A GIFT!</h1>
-            <div class="gifts">
-                <img src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" class="gift-box" onclick="showPage('page3')">
-                <img src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" class="gift-box" onclick="showPage('page3')">
-                <img src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" class="gift-box" onclick="showPage('page3')">
+            <div class="polaroid">
+                <img src="us.jpeg" alt="Our Photo">
             </div>
+            <p style="font-size: 0.9rem; color: #444; line-height: 1.5; text-align: left;">
+                As 2025 comes to an end, I was looking back at everything that happened this year. You were with me through the bitter-sweet moments... thank you for the laughs, supporting me at my worst, and simply being you. You made my 2025 a lil better and brighter.
+            </p>
+            <button class="btn btn-next" onclick="showPage('page3')">NEXT</button>
         </div>
 
         <div id="page3" class="hidden">
-            <div class="polaroid">
-                <img src="https://storage.googleapis.com/pai-images/5e81d11598f847429188d8b1086259f9.jpeg">
-            </div>
-            <p style="text-align: left; font-size: 0.95rem; color: #444; line-height: 1.6;">
-                As 2025 comes to an end, I was looking back at everything that happened this year. You were with me through the bitter-sweet moments... thank you for the laughs, supporting me at my worst, and simply being you. You made my 2025 a lil better and brighter.
-            </p>
-            <button class="btn btn-retry" onclick="showPage('page4')">NEXT</button>
-        </div>
-
-        <div id="page4" class="hidden">
-            <h1 style="font-family: 'Dancing Script'; font-size: 2.8rem; text-transform: none; margin-bottom: 10px;">Happy New Year</h1>
-            <p style="font-size: 1.1rem; color: #555;">May your 2026 be full of roses, cats, and everything you love. Stay as amazing as you are.</p>
-            <h2 style="color: var(--pink-dark); letter-spacing: 5px; margin-top: 25px;">✨ 2026 ✨</h2>
+            <h1 style="font-family: 'Dancing Script'; font-size: 2.5rem; text-transform: none;">Happy New Year</h1>
+            <p>May your 2026 be full of roses, cats, and everything you love. Stay as amazing as you are.</p>
+            <h2 style="color: var(--pink-dark); letter-spacing: 5px;">✨ 2026 ✨</h2>
         </div>
     </div>
 
@@ -116,16 +65,14 @@
             document.querySelectorAll('#game-container > div').forEach(div => div.classList.add('hidden'));
             document.getElementById(id).classList.remove('hidden');
         }
-
         function createDecorations() {
-            const icons = ['🌸', '💖', '🐾', '✨', '🌷'];
+            const icons = ['🌸', '💖', '🐾', '✨'];
             setInterval(() => {
                 const el = document.createElement('div');
                 el.className = 'floating';
                 el.innerHTML = icons[Math.floor(Math.random() * icons.length)];
                 el.style.left = Math.random() * 100 + 'vw';
                 el.style.fontSize = (Math.random() * 20 + 20) + 'px';
-                el.style.animationDuration = (Math.random() * 5 + 5) + 's';
                 document.body.appendChild(el);
                 setTimeout(() => el.remove(), 10000);
             }, 800);
