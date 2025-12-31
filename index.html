@@ -10,9 +10,9 @@
         body, html { margin: 0; padding: 0; height: 100%; background-color: var(--pink-bg); font-family: 'Quicksand', sans-serif; overflow: hidden; display: flex; justify-content: center; align-items: center; }
         .floating { position: absolute; pointer-events: none; z-index: 1; animation: floatUp 10s linear infinite; opacity: 0.5; font-size: 24px; }
         @keyframes floatUp { 0% { transform: translateY(110vh) rotate(0deg); } 100% { transform: translateY(-10vh) rotate(360deg); } }
-        #game-container { position: relative; z-index: 10; width: 85%; max-width: 400px; background: white; padding: 30px 20px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
+        #game-container { position: relative; z-index: 10; width: 85%; max-width: 380px; background: white; padding: 30px 20px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
         .hidden { display: none; }
-        h1 { color: #333; font-size: 1.1rem; margin-bottom: 20px; text-transform: uppercase; line-height: 1.4; }
+        h1 { color: #333; font-size: 1.2rem; margin-bottom: 20px; text-transform: uppercase; line-height: 1.4; }
         .btn-group { display: flex; justify-content: center; gap: 15px; }
         .btn { padding: 12px 30px; border-radius: 50px; border: none; cursor: pointer; font-weight: bold; transition: 0.3s; font-size: 1rem; }
         .btn-yes { background: var(--pink-main); color: white; }
@@ -23,20 +23,48 @@
         .gift-box { width: 70px; cursor: pointer; transition: transform 0.3s; }
         .gift-box:hover { transform: scale(1.1); }
         
-        /* Two Polaroid Layout */
-        .photo-grid { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 10px; padding: 10px 0; }
-        .polaroid { background: white; padding: 10px 10px 25px 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.12); border: 1px solid #f0f0f0; width: 42%; position: relative; }
-        .polaroid img { width: 100%; height: auto; border-radius: 2px; display: block; filter: sepia(10%) contrast(105%); }
-        .p1 { transform: rotate(-5deg); z-index: 2; }
-        .p2 { transform: rotate(5deg); z-index: 1; margin-left: -15px; }
-        
-        .athena-text { font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: #333; margin-top: 5px; }
+        /* --- NEW & UPDATED PHOTO STYLES --- */
+        .photo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+        .polaroid { 
+            background: white; 
+            padding: 10px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+            border: 1px solid #eee; 
+            width: 85%; /* Slightly smaller to fit two nicely */
+            transition: transform 0.3s;
+        }
+        /* Style for the first photo */
+        .polaroid-1 {
+            transform: rotate(-4deg) translateX(-5px);
+            z-index: 1;
+        }
+        /* Style for the second photo to make it overlap */
+        .polaroid-2 {
+            transform: rotate(3deg) translateX(5px);
+            margin-top: -40px; /* This creates the overlap effect */
+            z-index: 2;
+            position: relative;
+        }
+        .polaroid:hover {
+            transform: scale(1.02) rotate(0deg) !important; /* Pops up on hover */
+            z-index: 10;
+        }
+        /* ---------------------------------- */
+
+        .polaroid img { width: 100%; height: auto; border-radius: 2px; display: block; }
+        .athena-text { font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: #333; margin-top: 10px; border-top: 1px solid #f9f9f9; padding-top: 5px; }
     </style>
 </head>
 <body>
     <div id="game-container">
         <div id="page1">
-            <img src="cat1.jpeg" class="cat-img">
+            <img src="cat1.jpeg" class="cat-img" alt="Cute cat requesting">
             <h1>Hey I made something for you wanna see?</h1>
             <div class="btn-group">
                 <button class="btn btn-yes" onclick="showPage('page2')">YES</button>
@@ -45,7 +73,7 @@
         </div>
 
         <div id="no-trap" class="hidden">
-            <img src="cat2.jpeg" class="cat-img">
+             <img src="cat2.jpeg" class="cat-img" alt="Angry cat">
             <h1 style="color: #e63946;">HOW DARE YOU!</h1>
             <button class="btn btn-next" onclick="showPage('page1')">BACK</button>
         </div>
@@ -60,16 +88,17 @@
         </div>
 
         <div id="page3" class="hidden">
-            <div class="photo-grid">
-                <div class="polaroid p1">
-                    <img src="us.jpeg">
+            <div class="photo-container">
+                <div class="polaroid polaroid-1">
+                    <img src="us.jpeg" alt="Our first photo">
+                    <div class="athena-text">Thank you Athena</div>
                 </div>
-                <div class="polaroid p2">
-                    <img src="us2.jpeg">
+                <div class="polaroid polaroid-2">
+                    <img src="us2.jpeg" alt="Our second photo"> 
+                    <div class="athena-text">More memories...</div>
                 </div>
             </div>
-            <div class="athena-text">Thank you Athena</div>
-            <p style="font-size: 0.85rem; color: #444; line-height: 1.5; text-align: left; margin-top: 5px; padding: 0 5px;">
+            <p style="font-size: 0.9rem; color: #444; line-height: 1.6; text-align: left; margin-top: 20px;">
                 As 2025 comes to an end, I was looking back at everything that happened this year. You were with me through the bitter-sweet moments... thank you for the laughs, supporting me at my worst, and simply being you. You made my 2025 a lil better and brighter.
             </p>
             <button class="btn btn-next" onclick="showPage('page4')">NEXT</button>
