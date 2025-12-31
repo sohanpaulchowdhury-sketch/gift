@@ -20,29 +20,24 @@
         .btn-next { background: var(--pink-dark); color: white; width: 100%; margin-top: 15px; }
         .cat-img { width: 180px; height: 180px; object-fit: contain; margin-bottom: 15px; border-radius: 15px; }
         
-        /* Gift Box Styles */
         .gifts { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
         .gift-box { width: 70px; cursor: pointer; transition: transform 0.3s; }
         .gift-box:hover { transform: scale(1.1); }
 
-        /* Polaroid with Athena Caption */
+        /* Polaroid Frame with the Athena Text */
         .polaroid { background: white; padding: 10px 10px 10px 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transform: rotate(-2deg); margin-bottom: 15px; border: 1px solid #eee; }
         .polaroid img { width: 100%; height: auto; border-radius: 2px; display: block; }
-        .athena-text { font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: #333; margin-top: 10px; }
+        .athena-text { font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: #333; margin-top: 10px; border-top: 1px solid #f9f9f9; padding-top: 5px; }
     </style>
 </head>
 <body>
-
-    <audio id="bg-music" loop>
-        <source src="https://cdn.pixabay.com/audio/2022/05/27/audio_1808f307df.mp3" type="audio/mpeg">
-    </audio>
 
     <div id="game-container">
         <div id="page1">
             <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG5uNGR0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/vVzH2Fx6W7hJ6/giphy.gif" class="cat-img">
             <h1>Hey I made something for you wanna see?</h1>
             <div class="btn-group">
-                <button class="btn btn-yes" onclick="startBtn()">YES</button>
+                <button class="btn btn-yes" onclick="showPage('page2')">YES</button>
                 <button class="btn btn-no" onclick="showPage('no-trap')">NO</button>
             </div>
         </div>
@@ -81,10 +76,6 @@
     </div>
 
     <script>
-        function startBtn() {
-            document.getElementById('bg-music').play();
-            showPage('page2');
-        }
         function showPage(id) {
             document.querySelectorAll('#game-container > div').forEach(div => div.classList.add('hidden'));
             document.getElementById(id).classList.remove('hidden');
