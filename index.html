@@ -20,20 +20,21 @@
         .btn-next { background: var(--pink-dark); color: white; width: 100%; margin-top: 15px; }
         .cat-img { width: 180px; height: 180px; object-fit: contain; margin-bottom: 15px; border-radius: 15px; }
         
+        /* Gift Box Styles */
         .gifts { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
         .gift-box { width: 70px; cursor: pointer; transition: transform 0.3s; }
         .gift-box:hover { transform: scale(1.1); }
 
-        /* The Polaroid Frame with "Thank you Athena" */
+        /* Polaroid with Athena Caption */
         .polaroid { background: white; padding: 10px 10px 10px 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transform: rotate(-2deg); margin-bottom: 15px; border: 1px solid #eee; }
         .polaroid img { width: 100%; height: auto; border-radius: 2px; display: block; }
-        .polaroid-caption { font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: #333; margin-top: 10px; padding-bottom: 5px; }
+        .athena-text { font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: #333; margin-top: 10px; }
     </style>
 </head>
 <body>
 
     <audio id="bg-music" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <source src="https://cdn.pixabay.com/audio/2022/05/27/audio_1808f307df.mp3" type="audio/mpeg">
     </audio>
 
     <div id="game-container">
@@ -41,7 +42,7 @@
             <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG5uNGR0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/vVzH2Fx6W7hJ6/giphy.gif" class="cat-img">
             <h1>Hey I made something for you wanna see?</h1>
             <div class="btn-group">
-                <button class="btn btn-yes" onclick="startExperience()">YES</button>
+                <button class="btn btn-yes" onclick="startBtn()">YES</button>
                 <button class="btn btn-no" onclick="showPage('no-trap')">NO</button>
             </div>
         </div>
@@ -59,47 +60,42 @@
                 <img src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" class="gift-box" onclick="showPage('page3')">
                 <img src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" class="gift-box" onclick="showPage('page3')">
             </div>
-            <p style="color: #999; font-size: 0.8rem;">Tap one to open it!</p>
         </div>
 
         <div id="page3" class="hidden">
             <div class="polaroid">
                 <img src="us.jpeg">
-                <div class="polaroid-caption">Thank you Athena</div>
+                <div class="athena-text">Thank you Athena</div>
             </div>
-            <p style="font-size: 0.9rem; color: #444; line-height: 1.6; text-align: left; font-weight: 500;">
+            <p style="font-size: 0.9rem; color: #444; line-height: 1.6; text-align: left;">
                 As 2025 comes to an end, I was looking back at everything that happened this year. You were with me through the bitter-sweet moments... thank you for the laughs, supporting me at my worst, and simply being you. You made my 2025 a lil better and brighter.
             </p>
             <button class="btn btn-next" onclick="showPage('page4')">NEXT</button>
         </div>
 
         <div id="page4" class="hidden">
-            <h1 style="font-family: 'Dancing Script'; font-size: 2.6rem; text-transform: none; margin-bottom: 10px;">Happy New Year</h1>
-            <p style="font-weight: 500;">May your 2026 be full of roses, cats, and everything you love. Stay as amazing as you are.</p>
-            <h2 style="color: var(--pink-dark); letter-spacing: 5px; margin-top: 20px;">✨ 2026 ✨</h2>
+            <h1 style="font-family: 'Dancing Script'; font-size: 2.6rem; text-transform: none;">Happy New Year</h1>
+            <p>May your 2026 be full of roses, cats, and everything you love. Stay as amazing as you are.</p>
+            <h2 style="color: var(--pink-dark); letter-spacing: 5px;">✨ 2026 ✨</h2>
         </div>
     </div>
 
     <script>
-        function startExperience() {
-            // Start music on first interaction
+        function startBtn() {
             document.getElementById('bg-music').play();
             showPage('page2');
         }
-
         function showPage(id) {
             document.querySelectorAll('#game-container > div').forEach(div => div.classList.add('hidden'));
             document.getElementById(id).classList.remove('hidden');
         }
-
         function createDecorations() {
-            const icons = ['🌸', '💖', '🐾', '✨', '🌷'];
+            const icons = ['🌸', '💖', '🐾', '✨'];
             setInterval(() => {
                 const el = document.createElement('div');
                 el.className = 'floating';
                 el.innerHTML = icons[Math.floor(Math.random() * icons.length)];
                 el.style.left = Math.random() * 100 + 'vw';
-                el.style.animationDuration = (Math.random() * 5 + 5) + 's';
                 document.body.appendChild(el);
                 setTimeout(() => el.remove(), 10000);
             }, 800);
