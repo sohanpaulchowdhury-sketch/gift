@@ -1,4 +1,4 @@
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,10 +8,9 @@
     <style>
         :root { --pink-bg: #fdf0f5; --pink-main: #ffb7c5; --pink-dark: #fb6f92; }
         body, html { margin: 0; padding: 0; height: 100%; background-color: var(--pink-bg); font-family: 'Quicksand', sans-serif; overflow: hidden; display: flex; justify-content: center; align-items: center; }
-        .floating { position: absolute; pointer-events: none; z-index: 1; animation: floatUp 10s linear infinite; opacity: 0.5; font-size: 24px; }
+        .floating { position: absolute; pointer-events: none; z-1: 1; animation: floatUp 10s linear infinite; opacity: 0.5; font-size: 24px; }
         @keyframes floatUp { 0% { transform: translateY(110vh) rotate(0deg); } 100% { transform: translateY(-10vh) rotate(360deg); } }
         
-        /* Adjusted container to allow for larger photos */
         #game-container { position: relative; z-index: 10; width: 90%; max-width: 400px; background: white; padding: 30px 15px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
         
         .hidden { display: none; }
@@ -25,7 +24,6 @@
         .gifts { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
         .gift-box { width: 70px; cursor: pointer; transition: transform 0.3s; }
         
-        /* --- LARGER PHOTO STYLES --- */
         .photo-container {
             display: flex;
             flex-direction: column;
@@ -35,10 +33,10 @@
         }
         .polaroid { 
             background: white; 
-            padding: 12px 12px 15px 12px; /* Increased padding for a larger frame */
+            padding: 12px 12px 15px 12px; 
             box-shadow: 0 8px 20px rgba(0,0,0,0.12); 
             border: 1px solid #eee; 
-            width: 95%; /* Made photos larger */
+            width: 95%; 
             transition: transform 0.4s ease;
         }
         .polaroid-1 {
@@ -47,7 +45,7 @@
         }
         .polaroid-2 {
             transform: rotate(4deg) translateX(10px);
-            margin-top: -60px; /* Overlap adjusted for larger size */
+            margin-top: -60px; 
             z-index: 2;
             position: relative;
         }
@@ -55,7 +53,6 @@
             transform: scale(1.05) rotate(0deg) !important;
             z-index: 10;
         }
-        /* --------------------------- */
 
         .polaroid img { width: 100%; height: auto; border-radius: 2px; display: block; }
         .athena-text { font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: #333; margin-top: 12px; border-top: 1px solid #f2f2f2; padding-top: 8px; }
@@ -95,7 +92,7 @@
                 </div>
                 <div class="polaroid polaroid-2">
                     <img src="us2.jpeg">
-                    <div class="athena-text">More memories...</div>
+                    <div class="athena-text">Thank you Athena</div>
                 </div>
             </div>
             <p style="font-size: 0.9rem; color: #444; line-height: 1.6; text-align: left;">
