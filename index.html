@@ -20,23 +20,28 @@
         .btn-next { background: var(--pink-dark); color: white; width: 100%; margin-top: 15px; }
         .cat-img { width: 180px; height: 180px; object-fit: contain; margin-bottom: 15px; border-radius: 15px; }
         
-        /* Gift Box Styles */
         .gifts { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
         .gift-box { width: 70px; cursor: pointer; transition: transform 0.3s; }
         .gift-box:hover { transform: scale(1.1); }
 
-        .polaroid { background: white; padding: 10px 10px 35px 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transform: rotate(-2deg); margin-bottom: 15px; border: 1px solid #eee; }
+        /* The Polaroid Frame with "Thank you Athena" */
+        .polaroid { background: white; padding: 10px 10px 10px 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transform: rotate(-2deg); margin-bottom: 15px; border: 1px solid #eee; }
         .polaroid img { width: 100%; height: auto; border-radius: 2px; display: block; }
+        .polaroid-caption { font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: #333; margin-top: 10px; padding-bottom: 5px; }
     </style>
 </head>
 <body>
+
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
 
     <div id="game-container">
         <div id="page1">
             <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG5uNGR0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0bmJ0JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/vVzH2Fx6W7hJ6/giphy.gif" class="cat-img">
             <h1>Hey I made something for you wanna see?</h1>
             <div class="btn-group">
-                <button class="btn btn-yes" onclick="showPage('page2')">YES</button>
+                <button class="btn btn-yes" onclick="startExperience()">YES</button>
                 <button class="btn btn-no" onclick="showPage('no-trap')">NO</button>
             </div>
         </div>
@@ -60,6 +65,7 @@
         <div id="page3" class="hidden">
             <div class="polaroid">
                 <img src="us.jpeg">
+                <div class="polaroid-caption">Thank you Athena</div>
             </div>
             <p style="font-size: 0.9rem; color: #444; line-height: 1.6; text-align: left; font-weight: 500;">
                 As 2025 comes to an end, I was looking back at everything that happened this year. You were with me through the bitter-sweet moments... thank you for the laughs, supporting me at my worst, and simply being you. You made my 2025 a lil better and brighter.
@@ -75,10 +81,17 @@
     </div>
 
     <script>
+        function startExperience() {
+            // Start music on first interaction
+            document.getElementById('bg-music').play();
+            showPage('page2');
+        }
+
         function showPage(id) {
             document.querySelectorAll('#game-container > div').forEach(div => div.classList.add('hidden'));
             document.getElementById(id).classList.remove('hidden');
         }
+
         function createDecorations() {
             const icons = ['🌸', '💖', '🐾', '✨', '🌷'];
             setInterval(() => {
